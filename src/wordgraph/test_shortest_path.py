@@ -49,8 +49,10 @@ def test_p4_unreachable(sample_graph):
 # 路径 P5：中间节点重复访问（触发 d != dist[v] 分支）
 def test_p5_dist_check_continue(sample_graph):
     # 构造双路径结构以触发 pq 中的低优先路径被跳过
+    # 测试五
     sample_graph.add_edge("A", "X")
     sample_graph.add_edge("X", "E")  # A→X→E（劣路径）
     dist, path = shortest_path(sample_graph, "A", "F")
     print(f"\n[P5] 距离: {dist}, 路径: {path}")
     assert path == ["A", "B", "C", "F"]
+
